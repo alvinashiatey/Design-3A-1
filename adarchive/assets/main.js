@@ -24,10 +24,13 @@
 //                 body.style.backgroundColor = 'purple';
 //             }
 //         }
-   
 
+function transformScroll(event) {
+  if (!event.deltaY) {
+    return;
+  }
+  event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
+}
 
-console.log("Here")
-document.body.addEventListener("scroll", (e)=>{
-    console.log(document.body.scrollLeft, "here")
-})
+let scrollElement = document.scrollingElement || document.documentElement;
+scrollElemen.addEventListener("wheel", transformScroll);
